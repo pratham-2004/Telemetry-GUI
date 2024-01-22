@@ -1,4 +1,4 @@
- import processing.serial.*;
+import processing.serial.*;
 import processing.video.*;
 import java.io.PrintWriter;
 
@@ -22,10 +22,13 @@ void setup() {
   //img=loadImage("LOGO.jpg");
   size(1920, 1080);
   smooth();
-  video = new Capture(this, Capture.list()[3]);
+  video = new Capture(this, Capture.list()[0]);
   video.start();
   myPort = new Serial(this, Serial.list()[0], 230400);
-  output = createWriter("C:\\Users\\divya\\Desktop\\Fateh\\Processing Sketches\\Telemetry_GUI1\\Data1.csv");
+  output = createWriter("C:\\Users\\pratham\\Desktop\\FATEH\\Telemetry-GUI2\\Telemetry_Data_FB_24.csv");
+  output.println("Time,RPM,Coolant Temperature,Gear,Speed,Brake Pressure,Battery Voltage,Radiator,Data Logging,Throttle,Brake Temperature,LoadCell FL, LoadCell FR,LoadCell RL,LoadCell RR,Accelerometer X,Accelerometer Y,Accelerometer Z,Steering Angle");
+  
+  output.println("hello");
   for (int i = 0; i < rpm.length; i++) {
     rpm[i] = 0;
     speed[i] = 0;
